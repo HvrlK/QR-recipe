@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DDD67D7A209CF318004FE646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D79209CF318004FE646 /* AppDelegate.swift */; };
-		DDD67D7C209CF318004FE646 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D7B209CF318004FE646 /* ViewController.swift */; };
+		DDD67D7C209CF318004FE646 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D7B209CF318004FE646 /* LoginViewController.swift */; };
 		DDD67D7F209CF318004FE646 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD67D7D209CF318004FE646 /* Main.storyboard */; };
 		DDD67D81209CF319004FE646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDD67D80209CF319004FE646 /* Assets.xcassets */; };
 		DDD67D84209CF319004FE646 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD67D82209CF319004FE646 /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		DDD67D76209CF318004FE646 /* QR-recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR-recipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD67D79209CF318004FE646 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDD67D7B209CF318004FE646 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDD67D7B209CF318004FE646 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DDD67D7E209CF318004FE646 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDD67D80209CF319004FE646 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDD67D83209CF319004FE646 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				DDD67D79209CF318004FE646 /* AppDelegate.swift */,
-				DDD67D7B209CF318004FE646 /* ViewController.swift */,
+				DDD67D7B209CF318004FE646 /* LoginViewController.swift */,
 				DDD67D7D209CF318004FE646 /* Main.storyboard */,
 				DDD67D80209CF319004FE646 /* Assets.xcassets */,
 				DDD67D82209CF319004FE646 /* LaunchScreen.storyboard */,
@@ -135,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDD67D7C209CF318004FE646 /* ViewController.swift in Sources */,
+				DDD67D7C209CF318004FE646 /* LoginViewController.swift in Sources */,
 				DDD67D7A209CF318004FE646 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SWL59DHLX;
 				INFOPLIST_FILE = "QR-recipe/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SWL59DHLX;
 				INFOPLIST_FILE = "QR-recipe/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
