@@ -44,11 +44,17 @@ class LoginViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func forgotPassword() {
-        let alert = UIAlertController(title: NSLocalizedString("Don't worry!", comment: "Forgot password - title"), message: NSLocalizedString("You can ask it in the register.", comment: "Forgot password - message"), preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: NSLocalizedString("Don't worry!", comment: "Forgot password - title"),
+            message: NSLocalizedString("You can ask it in the register.", comment: "Forgot password - message"),
+            preferredStyle: .alert
+        )
         
-        let action = UIAlertAction(title: NSLocalizedString("Close", comment: "Forgot password - close"), style: .default, handler: { _ in
-            self.dismiss(animated: true, completion: nil)
-        })
+        let action = UIAlertAction(
+            title: NSLocalizedString("Close", comment: "Forgot password - close"),
+            style: .default,
+            handler: nil
+        )
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)

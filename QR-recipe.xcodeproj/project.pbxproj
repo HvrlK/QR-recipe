@@ -12,6 +12,8 @@
 		DDD67D7F209CF318004FE646 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD67D7D209CF318004FE646 /* Main.storyboard */; };
 		DDD67D81209CF319004FE646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDD67D80209CF319004FE646 /* Assets.xcassets */; };
 		DDD67D84209CF319004FE646 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD67D82209CF319004FE646 /* LaunchScreen.storyboard */; };
+		DDD67D8C209D0B1F004FE646 /* DoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D8B209D0B1F004FE646 /* DoctorTableViewController.swift */; };
+		DDD67D8E209D105B004FE646 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D8D209D105B004FE646 /* PatientTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DDD67D80209CF319004FE646 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDD67D83209CF319004FE646 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDD67D85209CF319004FE646 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDD67D8B209D0B1F004FE646 /* DoctorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewController.swift; sourceTree = "<group>"; };
+		DDD67D8D209D105B004FE646 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +58,13 @@
 		DDD67D78209CF318004FE646 /* QR-recipe */ = {
 			isa = PBXGroup;
 			children = (
-				DDD67D79209CF318004FE646 /* AppDelegate.swift */,
-				DDD67D7B209CF318004FE646 /* LoginViewController.swift */,
 				DDD67D7D209CF318004FE646 /* Main.storyboard */,
-				DDD67D80209CF319004FE646 /* Assets.xcassets */,
+				DDD67D7B209CF318004FE646 /* LoginViewController.swift */,
+				DDD67D8B209D0B1F004FE646 /* DoctorTableViewController.swift */,
+				DDD67D8D209D105B004FE646 /* PatientTableViewCell.swift */,
+				DDD67D79209CF318004FE646 /* AppDelegate.swift */,
 				DDD67D82209CF319004FE646 /* LaunchScreen.storyboard */,
+				DDD67D80209CF319004FE646 /* Assets.xcassets */,
 				DDD67D85209CF319004FE646 /* Info.plist */,
 			);
 			path = "QR-recipe";
@@ -136,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD67D7C209CF318004FE646 /* LoginViewController.swift in Sources */,
+				DDD67D8E209D105B004FE646 /* PatientTableViewCell.swift in Sources */,
 				DDD67D7A209CF318004FE646 /* AppDelegate.swift in Sources */,
+				DDD67D8C209D0B1F004FE646 /* DoctorTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
