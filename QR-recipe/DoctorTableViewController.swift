@@ -41,38 +41,25 @@ class DoctorTableViewController: UITableViewController {
         if let patientCell = cell as? PatientTableViewCell {
             let patient = isSearching ? searchPatients[indexPath.row] : patients[indexPath.row]
             patientCell.nameLabel.text = patient
-            patientCell.dateLabel.text = "2018"
+            patientCell.informationLabel.text = "2018"
         }
         return cell
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            patients.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(patients.count)
     }
-    */
 
 
     /*
@@ -84,6 +71,12 @@ class DoctorTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindFromAddPatient(unwideSegue: UIStoryboardSegue) {
+        guard let addPatientTableViewController = unwideSegue.source as? AddPatientTableViewController, let patient = addPatientTableViewController.selectedPatient else { return }
+        patients.append(patient)
+        tableView.reloadData()
+    }
     
     // MARK: Action
     
@@ -110,14 +103,14 @@ class DoctorTableViewController: UITableViewController {
 // MARK: - Extensions
 
 extension DoctorTableViewController: UISearchBarDelegate {
-        
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
             cancelButton.isEnabled = true
         }
     }
-    
+    //FIXME: add data supporting
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             searchPatients = patients

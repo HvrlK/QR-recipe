@@ -11,7 +11,7 @@ import UIKit
 class PatientTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var informationLabel: UILabel!
 
 
 }
