@@ -10,20 +10,36 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    //FIXME: add data model
+    var doctorAccounts = ["doctor"]
+    var patientAccounts = ["patient"]
+    
     // MARK: - Outlets
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
 
-    
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTextField.delegate = self
         passwordTextField.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tap)
+        usernameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         loginButton.layer.cornerRadius = 8
+        updateLoginButton()
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func textFieldDidChange() {
         updateLoginButton()
     }
     
@@ -39,6 +55,26 @@ class LoginViewController: UIViewController {
                 self.loginButton.alpha = 0.5
             }
         }
+    }
+    
+    func presentIncorrectDataAlert() {
+        usernameTextField.text?.removeAll()
+        passwordTextField.text?.removeAll()
+        usernameTextField.becomeFirstResponder()
+        let alert = UIAlertController(
+            title: NSLocalizedString("Incorrect login or password", comment: "Incorrect data - title"),
+            message: NSLocalizedString("Please, try again.", comment: "Incorrect data - message"),
+            preferredStyle: .alert
+        )
+        
+        let action = UIAlertAction(
+            title: NSLocalizedString("OK", comment: "Incorrect data - OK"),
+            style: .default,
+            handler: nil
+        )
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: Actions
@@ -59,6 +95,20 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    //FIXME: check password
+    @IBAction func loginButtonTapped() {
+        if doctorAccounts.contains(usernameTextField.text!) {
+            if let doctorNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DoctorNavigationController") as? UINavigationController {
+                present(doctorNavigationController, animated: true, completion: nil)
+            }
+        } else if patientAccounts.contains(usernameTextField.text!) {
+            if let patientViewController = self.storyboard?.instantiateViewController(withIdentifier: "PatientViewController") as? PatientViewController {
+                present(patientViewController, animated: true, completion: nil)
+            }
+        } else {
+            presentIncorrectDataAlert()
+        }
+    }
 
 }
 
@@ -66,12 +116,15 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        updateLoginButton()
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            if loginButton.isEnabled {
+                loginButtonTapped()
+            }
+        }
         return true
     }
     
