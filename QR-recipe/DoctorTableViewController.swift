@@ -8,23 +8,27 @@
 
 import UIKit
 
-class DoctorTableViewController: UITableViewController {
+class DoctorTableViewController: UITableViewController, UISearchControllerDelegate {
     
     // MARK: - Properties
     
     var patients = ["Havruliuk Vitalii", "Babenko Andrew"]
     var searchPatients: [String] = []
     var isSearching = false
+    var doctor: String?
     
     // MARK: - Outlets
     
-    @IBOutlet weak var searchBar: UISearchBar!
 
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
+        let search = UISearchController(searchResultsController: nil)
+        search.delegate = self
+        search.searchBar.delegate = self
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     // MARK: - Table view data source
@@ -57,20 +61,17 @@ class DoctorTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(patients.count)
-    }
-
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowPatient" {
+            guard let patientNavigationController = segue.destination as? UINavigationController else { return }
+            if let cell = sender as? PatientTableViewCell, let indexPath = tableView.indexPath(for: cell), let patientTableViewController = patientNavigationController.topViewController as? PatientTableViewController {
+                patientTableViewController.patient = patients[indexPath.row]
+                patientTableViewController.isDoctor = true
+            }
+        }
     }
-    */
     
     @IBAction func unwindFromAddPatient(unwideSegue: UIStoryboardSegue) {
         guard let addPatientTableViewController = unwideSegue.source as? AddPatientTableViewController, let patient = addPatientTableViewController.selectedPatient else { return }
