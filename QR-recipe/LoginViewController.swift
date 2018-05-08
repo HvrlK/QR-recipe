@@ -98,12 +98,14 @@ class LoginViewController: UIViewController {
     //FIXME: check password
     @IBAction func loginButtonTapped() {
         if doctorAccounts.contains(usernameTextField.text!) {
-            if let doctorNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DoctorNavigationController") as? UINavigationController {
+            if let doctorNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DoctorNavigationController") as? UINavigationController, let doctorTableViewController = doctorNavigationController.topViewController as? DoctorTableViewController {
+                doctorTableViewController.doctor = "Doc"
                 present(doctorNavigationController, animated: true, completion: nil)
             }
         } else if patientAccounts.contains(usernameTextField.text!) {
-            if let patientViewController = self.storyboard?.instantiateViewController(withIdentifier: "PatientViewController") as? PatientViewController {
-                present(patientViewController, animated: true, completion: nil)
+            if let patientNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "PatientNavigationController") as? UINavigationController, let patientTableViewController = patientNavigationController.topViewController as? PatientTableViewController {
+                patientTableViewController.patient = "Hvrlk"
+                present(patientNavigationController, animated: true, completion: nil)
             }
         } else {
             presentIncorrectDataAlert()
