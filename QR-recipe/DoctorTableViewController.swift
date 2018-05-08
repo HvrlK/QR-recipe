@@ -82,21 +82,7 @@ class DoctorTableViewController: UITableViewController, UISearchControllerDelega
     // MARK: Action
     
     @IBAction func logOut() {
-        let alert = UIAlertController(title: NSLocalizedString("Are you sure?", comment: "LogOut - title"), message: nil, preferredStyle: .alert)
-        let logOutAction = UIAlertAction(
-            title: NSLocalizedString("Log Out", comment: "LogOut - exit"),
-            style: .destructive,
-            handler: { _ in
-                //FIXME: write a logic
-            })
-        let cancelAction = UIAlertAction(
-            title: NSLocalizedString("Cancel", comment: "LogOut - cancel"),
-            style: .cancel,
-            handler: nil
-        )
-        alert.addAction(logOutAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
+        showLogOutAlert(self)
     }
 
 }

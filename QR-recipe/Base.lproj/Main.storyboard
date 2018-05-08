@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="40"/>
+            <point key="canvasLocation" x="489" y="29"/>
         </scene>
         <!--My Patients-->
         <scene sceneID="v8Y-Ra-gzU">
@@ -142,7 +142,7 @@
                                 <connections>
                                     <outlet property="informationLabel" destination="p4v-jr-Rgj" id="JSZ-P5-KEQ"/>
                                     <outlet property="nameLabel" destination="Hh9-Hw-JxE" id="Lcu-oG-O0d"/>
-                                    <segue destination="HW8-6x-kXH" kind="show" identifier="ShowPatient" id="yRE-rF-au8"/>
+                                    <segue destination="HW8-6x-kXH" kind="presentation" identifier="ShowPatient" id="HG2-8F-kny"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -323,8 +323,16 @@
                             <outlet property="delegate" destination="fpY-eN-3Se" id="6mR-5j-AKH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="A8k-nn-LYW"/>
+                    <navigationItem key="navigationItem" id="A8k-nn-LYW">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="JZ9-4E-ulF">
+                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="barButtonTapped" destination="fpY-eN-3Se" id="1xf-FZ-vGf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="barButton" destination="JZ9-4E-ulF" id="wgL-PA-JWA"/>
                         <outlet property="dateLabel" destination="OCm-Ao-L5Z" id="3f6-ex-BZc"/>
                         <outlet property="medicalIDLabel" destination="5mk-pY-rSI" id="YLA-gW-ZT9"/>
                         <outlet property="nameLabel" destination="dE2-hs-i80" id="gdO-O1-jQS"/>
@@ -332,7 +340,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aH1-Ef-ty5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="330"/>
+            <point key="canvasLocation" x="2145" y="343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cd1-fs-n3r">
@@ -446,7 +454,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8G-Ow-xBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="330"/>
+            <point key="canvasLocation" x="1254" y="344"/>
         </scene>
     </scenes>
 </document>
