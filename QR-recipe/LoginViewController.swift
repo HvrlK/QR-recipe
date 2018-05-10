@@ -77,6 +77,12 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func savePassword() {
+        let defaults = UserDefaults.standard
+        defaults.set(String(describing: usernameTextField.text!), forKey: "login")
+        defaults.set(String(describing: passwordTextField.text!), forKey: "password")
+    }
+    
     // MARK: Actions
     
     @IBAction func forgotPassword() {
@@ -95,16 +101,16 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    //FIXME: check password
+    //FIXME: check password and data
     @IBAction func loginButtonTapped() {
         if doctorAccounts.contains(usernameTextField.text!) {
-            if let doctorNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DoctorNavigationController") as? UINavigationController, let doctorTableViewController = doctorNavigationController.topViewController as? DoctorTableViewController {
-                doctorTableViewController.doctor = "Doc"
+            if let doctorNavigationController = accountForDoctor("doc") {
+                savePassword()
                 present(doctorNavigationController, animated: true, completion: nil)
             }
         } else if patientAccounts.contains(usernameTextField.text!) {
-            if let patientNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "PatientNavigationController") as? UINavigationController, let patientTableViewController = patientNavigationController.topViewController as? PatientTableViewController {
-                patientTableViewController.patient = "Hvrlk"
+            if let patientNavigationController = accountForPatient("Hvrlk") {
+                savePassword()
                 present(patientNavigationController, animated: true, completion: nil)
             }
         } else {
@@ -119,6 +125,9 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text == "" {
+            return false
+        }
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
         } else {

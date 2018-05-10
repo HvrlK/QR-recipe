@@ -15,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let defaults = UserDefaults.standard
+        let doctorAccounts = ["doctor"]
+        let patientAccounts = ["patient"]
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let login = defaults.string(forKey: "login"), doctorAccounts.contains(login) {
+            self.window?.rootViewController = accountForDoctor("Doctor")
+        } else if let login = defaults.string(forKey: "login"), patientAccounts.contains(login) {
+            self.window?.rootViewController = accountForPatient("Hvrlk")
+        } else {
+            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        }
+        self.window?.makeKeyAndVisible()
         return true
     }
 
