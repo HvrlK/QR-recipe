@@ -366,7 +366,7 @@
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="QR-code" id="hSs-Nt-OLg">
                                         <connections>
-                                            <segue destination="cUc-Xp-6EK" kind="presentation" id="319-YO-LW7"/>
+                                            <segue destination="cUc-Xp-6EK" kind="presentation" identifier="ShowQRcode" id="319-YO-LW7"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>

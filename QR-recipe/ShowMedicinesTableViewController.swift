@@ -12,7 +12,7 @@ class ShowMedicinesTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    var medicines = ["med 1", "med 2"]
+    var medicines = ["med 1", "med 2", "med 3"]
     var meddescription = ["description 1", "description 2"]
     
     // MARK: - Outlets
@@ -63,15 +63,23 @@ class ShowMedicinesTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowQRcode" {
+            if let QRCodeViewController = segue.destination as? QRcodeViewController {
+                let medicinesForQRCode = medicines.joined(separator: "\n")
+                let data = medicinesForQRCode.data(using: .utf8, allowLossyConversion: false)
+                if let filter = CIFilter(name: "CIQRCodeGenerator") {
+                    filter.setValue(data, forKey: "inputMessage")
+                    let transform = CGAffineTransform(scaleX: 10, y: 10)
+                    if let output = filter.outputImage?.transformed(by: transform) {
+                        QRCodeViewController.image = UIImage(ciImage: output)
+                    }
+                }
+            }
+        }
     }
-    */
     
     // MARK: - Actions
     
