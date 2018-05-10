@@ -45,7 +45,7 @@ class DoctorTableViewController: UITableViewController, UISearchControllerDelega
         if let patientCell = cell as? PatientTableViewCell {
             let patient = isSearching ? searchPatients[indexPath.row] : patients[indexPath.row]
             patientCell.nameLabel.text = patient
-            patientCell.informationLabel.text = "2018"
+            patientCell.medicalIDLabel.text = "204343"
         }
         return cell
     }
@@ -56,6 +56,7 @@ class DoctorTableViewController: UITableViewController, UISearchControllerDelega
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            //FIXME: add database logic
             patients.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -97,7 +98,7 @@ extension DoctorTableViewController: UISearchBarDelegate {
             cancelButton.isEnabled = true
         }
     }
-    //FIXME: add data supporting
+    //FIXME: add data supporting (medID)
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             searchPatients = patients

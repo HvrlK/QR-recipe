@@ -111,14 +111,14 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2DH-tZ-0zR">
                                                     <rect key="frame" x="0.0" y="24" width="343" height="20.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Visited:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-Y2-TMn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="57" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Medical ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-Y2-TMn">
+                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Date goes here)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-jr-Rgj">
-                                                            <rect key="frame" x="65" y="0.0" width="278" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ID goes here)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-jr-Rgj">
+                                                            <rect key="frame" x="93" y="0.0" width="250" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -140,7 +140,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="informationLabel" destination="p4v-jr-Rgj" id="JSZ-P5-KEQ"/>
+                                    <outlet property="medicalIDLabel" destination="p4v-jr-Rgj" id="JSZ-P5-KEQ"/>
                                     <outlet property="nameLabel" destination="Hh9-Hw-JxE" id="Lcu-oG-O0d"/>
                                     <segue destination="HW8-6x-kXH" kind="presentation" identifier="ShowPatient" id="HG2-8F-kny"/>
                                 </connections>
@@ -417,7 +417,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="informationLabel" destination="dLa-c7-NCf" id="3iQ-z8-2dB"/>
+                                    <outlet property="medicalIDLabel" destination="dLa-c7-NCf" id="3iQ-z8-2dB"/>
                                     <outlet property="nameLabel" destination="7qd-Y9-fKb" id="ave-y3-38s"/>
                                 </connections>
                             </tableViewCell>
