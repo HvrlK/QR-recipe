@@ -48,11 +48,9 @@ class PatientTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 3
-        } else if isDoctor {
-            return 2
+            return isDoctor ? 3 : 2
         } else {
-            return 1
+            return isDoctor ? 2 : 1
         }
     }
 

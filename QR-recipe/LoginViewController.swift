@@ -88,7 +88,7 @@ class LoginViewController: UIViewController {
     @IBAction func forgotPassword() {
         let alert = UIAlertController(
             title: NSLocalizedString("Don't worry!", comment: "Forgot password - title"),
-            message: NSLocalizedString("You can ask it in the register.", comment: "Forgot password - message"),
+            message: NSLocalizedString("Call the number 097 692 42 09.", comment: "Forgot password - message"),
             preferredStyle: .alert
         )
         

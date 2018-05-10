@@ -24,6 +24,7 @@ class DoctorTableViewController: UITableViewController, UISearchControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = doctor
         let search = UISearchController(searchResultsController: nil)
         search.delegate = self
         search.searchBar.delegate = self
