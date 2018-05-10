@@ -286,7 +286,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <state key="normal" title="Show Recipe"/>
                                                     <connections>
-                                                        <segue destination="yVy-cr-lzj" kind="presentation" id="7dr-Ho-YgM"/>
+                                                        <segue destination="Can-M6-z7h" kind="presentation" id="kAG-hE-BQc"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -349,18 +349,45 @@
         <!--Medicines-->
         <scene sceneID="bp3-wz-QZ8">
             <objects>
-                <tableViewController id="Can-M6-z7h" sceneMemberID="viewController">
+                <tableViewController id="Can-M6-z7h" customClass="ShowMedicinesTableViewController" customModule="QR_recipe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cCi-rp-ALe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="TKK-bw-eBf">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Medicines" id="oMJ-Qq-fe2">
+                                    <barButtonItem key="leftBarButtonItem" title="Close" id="Igh-hi-xFv">
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="Can-M6-z7h" id="4kU-DC-EaR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="QR-code" id="hSs-Nt-OLg">
+                                        <connections>
+                                            <segue destination="cUc-Xp-6EK" kind="presentation" id="319-YO-LW7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="APy-7q-dKI">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicinesCell" textLabel="Vqp-t7-quZ" style="IBUITableViewCellStyleDefault" id="APy-7q-dKI">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="APy-7q-dKI" id="UcG-Dt-lkL">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vqp-t7-quZ">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -371,16 +398,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Medicines" id="FgK-7E-iFy">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="2qM-I1-uCy"/>
-                        <barButtonItem key="rightBarButtonItem" title="QR-code" id="MGO-HI-Bzp">
-                            <connections>
-                                <segue destination="cUc-Xp-6EK" kind="presentation" id="WNS-IK-GOn"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="QR-code" id="MGO-HI-Bzp"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navigationBar" destination="TKK-bw-eBf" id="ggO-TL-L1u"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zb0-jm-JuN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="341"/>
+            <point key="canvasLocation" x="3057" y="344"/>
         </scene>
         <!--Rcode View Controller-->
         <scene sceneID="lsx-zK-SmJ">
@@ -433,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HK-oF-juc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4767" y="340"/>
+            <point key="canvasLocation" x="3894" y="343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cd1-fs-n3r">
@@ -548,24 +574,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8G-Ow-xBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1254" y="344"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="AxD-n9-LUw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yVy-cr-lzj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q2T-EF-5kE">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Can-M6-z7h" kind="relationship" relationship="rootViewController" id="iob-Ue-N7S"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B3Y-Hp-qZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3056.8000000000002" y="341.37931034482762"/>
         </scene>
     </scenes>
 </document>
