@@ -421,14 +421,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="QR-code" id="fZ2-mT-Qca">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="iQb-ep-OBZ">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="iQb-ep-OBZ">
                                             <connections>
                                                 <action selector="doneButtonTapped:" destination="cUc-Xp-6EK" id="hBO-m3-tIF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="cb2-jw-LcT">
-                                            <connections>
-                                                <action selector="shareButtonTapped:" destination="cUc-Xp-6EK" id="VZV-Jj-Foa"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -454,7 +449,6 @@
                     <connections>
                         <outlet property="QRcodeImageView" destination="ZAW-ge-5of" id="uYc-RM-a4R"/>
                         <outlet property="navigationBar" destination="X0C-Rx-Ich" id="R8s-eY-JAH"/>
-                        <outlet property="shareButton" destination="cb2-jw-LcT" id="lEr-mc-fhb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HK-oF-juc" userLabel="First Responder" sceneMemberID="firstResponder"/>
