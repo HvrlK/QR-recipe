@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		DD1C25F520A4E0B000C678D7 /* QRcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C25F420A4E0B000C678D7 /* QRcodeViewController.swift */; };
-		DD1C25F720A4E8DA00C678D7 /* ShowMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C25F620A4E8DA00C678D7 /* ShowMedicinesTableViewController.swift */; };
+		DD1C25F720A4E8DA00C678D7 /* ShowAddMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C25F620A4E8DA00C678D7 /* ShowAddMedicinesTableViewController.swift */; };
 		DD3D25EF20A0693800E905A4 /* AddPatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D25EE20A0693800E905A4 /* AddPatientTableViewController.swift */; };
 		DD3D25F120A07B8D00E905A4 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D25F020A07B8D00E905A4 /* PatientTableViewController.swift */; };
 		DD3D25F320A1DFF200E905A4 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D25F220A1DFF200E905A4 /* Functions.swift */; };
+		DDAC253B20A5A02F00F19758 /* AddMedicinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC253A20A5A02F00F19758 /* AddMedicinesViewController.swift */; };
 		DDD67D7A209CF318004FE646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D79209CF318004FE646 /* AppDelegate.swift */; };
 		DDD67D7C209CF318004FE646 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D7B209CF318004FE646 /* LoginViewController.swift */; };
 		DDD67D7F209CF318004FE646 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDD67D7D209CF318004FE646 /* Main.storyboard */; };
@@ -23,10 +24,11 @@
 
 /* Begin PBXFileReference section */
 		DD1C25F420A4E0B000C678D7 /* QRcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeViewController.swift; sourceTree = "<group>"; };
-		DD1C25F620A4E8DA00C678D7 /* ShowMedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMedicinesTableViewController.swift; sourceTree = "<group>"; };
+		DD1C25F620A4E8DA00C678D7 /* ShowAddMedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddMedicinesTableViewController.swift; sourceTree = "<group>"; };
 		DD3D25EE20A0693800E905A4 /* AddPatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientTableViewController.swift; sourceTree = "<group>"; };
 		DD3D25F020A07B8D00E905A4 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
 		DD3D25F220A1DFF200E905A4 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		DDAC253A20A5A02F00F19758 /* AddMedicinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicinesViewController.swift; sourceTree = "<group>"; };
 		DDD67D76209CF318004FE646 /* QR-recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR-recipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD67D79209CF318004FE646 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDD67D7B209CF318004FE646 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -73,8 +75,9 @@
 				DDD67D8B209D0B1F004FE646 /* DoctorTableViewController.swift */,
 				DD3D25F020A07B8D00E905A4 /* PatientTableViewController.swift */,
 				DD3D25EE20A0693800E905A4 /* AddPatientTableViewController.swift */,
-				DD1C25F620A4E8DA00C678D7 /* ShowMedicinesTableViewController.swift */,
+				DD1C25F620A4E8DA00C678D7 /* ShowAddMedicinesTableViewController.swift */,
 				DD1C25F420A4E0B000C678D7 /* QRcodeViewController.swift */,
+				DDAC253A20A5A02F00F19758 /* AddMedicinesViewController.swift */,
 				DDD67D8D209D105B004FE646 /* PatientTableViewCell.swift */,
 				DD3D25F220A1DFF200E905A4 /* Functions.swift */,
 				DDD67D79209CF318004FE646 /* AppDelegate.swift */,
@@ -160,10 +163,11 @@
 				DDD67D8E209D105B004FE646 /* PatientTableViewCell.swift in Sources */,
 				DD1C25F520A4E0B000C678D7 /* QRcodeViewController.swift in Sources */,
 				DD3D25F120A07B8D00E905A4 /* PatientTableViewController.swift in Sources */,
-				DD1C25F720A4E8DA00C678D7 /* ShowMedicinesTableViewController.swift in Sources */,
+				DD1C25F720A4E8DA00C678D7 /* ShowAddMedicinesTableViewController.swift in Sources */,
 				DD3D25F320A1DFF200E905A4 /* Functions.swift in Sources */,
 				DDD67D7A209CF318004FE646 /* AppDelegate.swift in Sources */,
 				DDD67D8C209D0B1F004FE646 /* DoctorTableViewController.swift in Sources */,
+				DDAC253B20A5A02F00F19758 /* AddMedicinesViewController.swift in Sources */,
 				DD3D25EF20A0693800E905A4 /* AddPatientTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

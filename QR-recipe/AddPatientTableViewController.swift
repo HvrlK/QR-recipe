@@ -20,7 +20,7 @@ class AddPatientTableViewController: DoctorTableViewController {
         super.viewDidLoad()
         patients = ["Illenok Marina", "Plahtiy Bogdan"]
     }
-    
+
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false

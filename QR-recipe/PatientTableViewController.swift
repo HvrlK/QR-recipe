@@ -53,5 +53,15 @@ class PatientTableViewController: UITableViewController {
             return isDoctor ? 2 : 1
         }
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddNewRecipe" {
+            if let showAddMedicinesTableViewController = segue.destination as? ShowAddMedicinesTableViewController {
+                showAddMedicinesTableViewController.isAdding = true
+            }
+        }
+    }
 
 }
