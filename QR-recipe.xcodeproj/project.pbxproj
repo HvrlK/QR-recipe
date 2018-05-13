@@ -13,10 +13,18 @@
 		DD3D25F120A07B8D00E905A4 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D25F020A07B8D00E905A4 /* PatientTableViewController.swift */; };
 		DD3D25F320A1DFF200E905A4 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D25F220A1DFF200E905A4 /* Functions.swift */; };
 		DD58291E20A8822600EF3A56 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD58291C20A8822600EF3A56 /* Model.xcdatamodeld */; };
-		DD58292120A8865400EF3A56 /* PatientAccounts+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58291F20A8865400EF3A56 /* PatientAccounts+CoreDataClass.swift */; };
-		DD58292220A8865400EF3A56 /* PatientAccounts+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58292020A8865400EF3A56 /* PatientAccounts+CoreDataProperties.swift */; };
-		DD58292A20A88D5E00EF3A56 /* DoctorAccounts+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58292820A88D5E00EF3A56 /* DoctorAccounts+CoreDataClass.swift */; };
-		DD58292B20A88D5E00EF3A56 /* DoctorAccounts+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58292920A88D5E00EF3A56 /* DoctorAccounts+CoreDataProperties.swift */; };
+		DD58293420A8BBAB00EF3A56 /* Doctors+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58292C20A8BBAB00EF3A56 /* Doctors+CoreDataClass.swift */; };
+		DD58293520A8BBAB00EF3A56 /* Doctors+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58292D20A8BBAB00EF3A56 /* Doctors+CoreDataProperties.swift */; };
+		DD58293620A8BBAB00EF3A56 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58292E20A8BBAB00EF3A56 /* Recipe+CoreDataClass.swift */; };
+		DD58293720A8BBAB00EF3A56 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58292F20A8BBAB00EF3A56 /* Recipe+CoreDataProperties.swift */; };
+		DD58293820A8BBAB00EF3A56 /* Medicines+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293020A8BBAB00EF3A56 /* Medicines+CoreDataClass.swift */; };
+		DD58293920A8BBAB00EF3A56 /* Medicines+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293120A8BBAB00EF3A56 /* Medicines+CoreDataProperties.swift */; };
+		DD58293A20A8BBAB00EF3A56 /* Patients+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293220A8BBAB00EF3A56 /* Patients+CoreDataClass.swift */; };
+		DD58293B20A8BBAB00EF3A56 /* Patients+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293320A8BBAB00EF3A56 /* Patients+CoreDataProperties.swift */; };
+		DD58294020A8BBE200EF3A56 /* DoctorAccounts+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293C20A8BBE200EF3A56 /* DoctorAccounts+CoreDataClass.swift */; };
+		DD58294120A8BBE200EF3A56 /* DoctorAccounts+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293D20A8BBE200EF3A56 /* DoctorAccounts+CoreDataProperties.swift */; };
+		DD58294220A8BBE200EF3A56 /* PatientAccounts+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293E20A8BBE200EF3A56 /* PatientAccounts+CoreDataClass.swift */; };
+		DD58294320A8BBE200EF3A56 /* PatientAccounts+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58293F20A8BBE200EF3A56 /* PatientAccounts+CoreDataProperties.swift */; };
 		DDAC253B20A5A02F00F19758 /* AddMedicinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC253A20A5A02F00F19758 /* AddMedicinesViewController.swift */; };
 		DDD67D7A209CF318004FE646 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D79209CF318004FE646 /* AppDelegate.swift */; };
 		DDD67D7C209CF318004FE646 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD67D7B209CF318004FE646 /* LoginViewController.swift */; };
@@ -34,10 +42,18 @@
 		DD3D25F020A07B8D00E905A4 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
 		DD3D25F220A1DFF200E905A4 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		DD58291D20A8822600EF3A56 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		DD58291F20A8865400EF3A56 /* PatientAccounts+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientAccounts+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DD58292020A8865400EF3A56 /* PatientAccounts+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientAccounts+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DD58292820A88D5E00EF3A56 /* DoctorAccounts+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoctorAccounts+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DD58292920A88D5E00EF3A56 /* DoctorAccounts+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoctorAccounts+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD58292C20A8BBAB00EF3A56 /* Doctors+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Doctors+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD58292D20A8BBAB00EF3A56 /* Doctors+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Doctors+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD58292E20A8BBAB00EF3A56 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD58292F20A8BBAB00EF3A56 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD58293020A8BBAB00EF3A56 /* Medicines+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicines+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD58293120A8BBAB00EF3A56 /* Medicines+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicines+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD58293220A8BBAB00EF3A56 /* Patients+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patients+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD58293320A8BBAB00EF3A56 /* Patients+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Patients+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD58293C20A8BBE200EF3A56 /* DoctorAccounts+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoctorAccounts+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD58293D20A8BBE200EF3A56 /* DoctorAccounts+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoctorAccounts+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD58293E20A8BBE200EF3A56 /* PatientAccounts+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientAccounts+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD58293F20A8BBE200EF3A56 /* PatientAccounts+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatientAccounts+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DDAC253A20A5A02F00F19758 /* AddMedicinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicinesViewController.swift; sourceTree = "<group>"; };
 		DDD67D76209CF318004FE646 /* QR-recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR-recipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDD67D79209CF318004FE646 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,10 +80,18 @@
 		DD58292720A887FD00EF3A56 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				DD58292820A88D5E00EF3A56 /* DoctorAccounts+CoreDataClass.swift */,
-				DD58292920A88D5E00EF3A56 /* DoctorAccounts+CoreDataProperties.swift */,
-				DD58291F20A8865400EF3A56 /* PatientAccounts+CoreDataClass.swift */,
-				DD58292020A8865400EF3A56 /* PatientAccounts+CoreDataProperties.swift */,
+				DD58293C20A8BBE200EF3A56 /* DoctorAccounts+CoreDataClass.swift */,
+				DD58293D20A8BBE200EF3A56 /* DoctorAccounts+CoreDataProperties.swift */,
+				DD58293E20A8BBE200EF3A56 /* PatientAccounts+CoreDataClass.swift */,
+				DD58293F20A8BBE200EF3A56 /* PatientAccounts+CoreDataProperties.swift */,
+				DD58292C20A8BBAB00EF3A56 /* Doctors+CoreDataClass.swift */,
+				DD58292D20A8BBAB00EF3A56 /* Doctors+CoreDataProperties.swift */,
+				DD58292E20A8BBAB00EF3A56 /* Recipe+CoreDataClass.swift */,
+				DD58292F20A8BBAB00EF3A56 /* Recipe+CoreDataProperties.swift */,
+				DD58293020A8BBAB00EF3A56 /* Medicines+CoreDataClass.swift */,
+				DD58293120A8BBAB00EF3A56 /* Medicines+CoreDataProperties.swift */,
+				DD58293220A8BBAB00EF3A56 /* Patients+CoreDataClass.swift */,
+				DD58293320A8BBAB00EF3A56 /* Patients+CoreDataProperties.swift */,
 				DD58291C20A8822600EF3A56 /* Model.xcdatamodeld */,
 			);
 			path = DataModel;
@@ -96,8 +120,8 @@
 				DDD67D7D209CF318004FE646 /* Main.storyboard */,
 				DDD67D7B209CF318004FE646 /* LoginViewController.swift */,
 				DDD67D8B209D0B1F004FE646 /* DoctorTableViewController.swift */,
-				DD3D25F020A07B8D00E905A4 /* PatientTableViewController.swift */,
 				DD3D25EE20A0693800E905A4 /* AddPatientTableViewController.swift */,
+				DD3D25F020A07B8D00E905A4 /* PatientTableViewController.swift */,
 				DD1C25F620A4E8DA00C678D7 /* ShowAddMedicinesTableViewController.swift */,
 				DD1C25F420A4E0B000C678D7 /* QRcodeViewController.swift */,
 				DDAC253A20A5A02F00F19758 /* AddMedicinesViewController.swift */,
@@ -182,21 +206,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD58294020A8BBE200EF3A56 /* DoctorAccounts+CoreDataClass.swift in Sources */,
 				DDD67D7C209CF318004FE646 /* LoginViewController.swift in Sources */,
 				DDD67D8E209D105B004FE646 /* PatientTableViewCell.swift in Sources */,
+				DD58293720A8BBAB00EF3A56 /* Recipe+CoreDataProperties.swift in Sources */,
 				DD1C25F520A4E0B000C678D7 /* QRcodeViewController.swift in Sources */,
 				DD3D25F120A07B8D00E905A4 /* PatientTableViewController.swift in Sources */,
 				DD1C25F720A4E8DA00C678D7 /* ShowAddMedicinesTableViewController.swift in Sources */,
+				DD58293520A8BBAB00EF3A56 /* Doctors+CoreDataProperties.swift in Sources */,
 				DD3D25F320A1DFF200E905A4 /* Functions.swift in Sources */,
-				DD58292A20A88D5E00EF3A56 /* DoctorAccounts+CoreDataClass.swift in Sources */,
-				DD58292B20A88D5E00EF3A56 /* DoctorAccounts+CoreDataProperties.swift in Sources */,
+				DD58293420A8BBAB00EF3A56 /* Doctors+CoreDataClass.swift in Sources */,
+				DD58293A20A8BBAB00EF3A56 /* Patients+CoreDataClass.swift in Sources */,
 				DDD67D7A209CF318004FE646 /* AppDelegate.swift in Sources */,
-				DD58292120A8865400EF3A56 /* PatientAccounts+CoreDataClass.swift in Sources */,
+				DD58293820A8BBAB00EF3A56 /* Medicines+CoreDataClass.swift in Sources */,
+				DD58294320A8BBE200EF3A56 /* PatientAccounts+CoreDataProperties.swift in Sources */,
 				DDD67D8C209D0B1F004FE646 /* DoctorTableViewController.swift in Sources */,
 				DDAC253B20A5A02F00F19758 /* AddMedicinesViewController.swift in Sources */,
 				DD58291E20A8822600EF3A56 /* Model.xcdatamodeld in Sources */,
 				DD3D25EF20A0693800E905A4 /* AddPatientTableViewController.swift in Sources */,
-				DD58292220A8865400EF3A56 /* PatientAccounts+CoreDataProperties.swift in Sources */,
+				DD58293620A8BBAB00EF3A56 /* Recipe+CoreDataClass.swift in Sources */,
+				DD58293920A8BBAB00EF3A56 /* Medicines+CoreDataProperties.swift in Sources */,
+				DD58294220A8BBE200EF3A56 /* PatientAccounts+CoreDataClass.swift in Sources */,
+				DD58294120A8BBE200EF3A56 /* DoctorAccounts+CoreDataProperties.swift in Sources */,
+				DD58293B20A8BBAB00EF3A56 /* Patients+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

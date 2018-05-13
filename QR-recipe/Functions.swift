@@ -33,7 +33,7 @@ func showLogOutAlert(_ viewController: UIViewController) {
     viewController.present(alert, animated: true, completion: nil)
 }
 
-func accountForDoctor(_ doctor: String) -> UINavigationController? {
+func accountForDoctor(_ doctor: Doctors) -> UINavigationController? {
     if let doctorNavigationController = storyboard.instantiateViewController(withIdentifier: "DoctorNavigationController") as? UINavigationController, let doctorTableViewController = doctorNavigationController.topViewController as? DoctorTableViewController {
         doctorTableViewController.doctor = doctor
         return doctorNavigationController
@@ -41,12 +41,27 @@ func accountForDoctor(_ doctor: String) -> UINavigationController? {
     return nil
 }
 
-func accountForPatient(_ patient: String) -> UINavigationController? {
+func accountForPatient(_ patient: Patients) -> UINavigationController? {
     if let patientNavigationController = storyboard.instantiateViewController(withIdentifier: "PatientNavigationController") as? UINavigationController, let patientTableViewController = patientNavigationController.topViewController as? PatientTableViewController {
         patientTableViewController.patient = patient
         return patientNavigationController
     }
     return nil
+}
+
+func context() -> NSManagedObjectContext {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.managedObjectContext
+    return context
+}
+
+//FIXME: alert for error
+func saveContext(_ context: NSManagedObjectContext) {
+    do {
+        try context.save()
+    } catch {
+        fatalError("dont save")
+    }
 }
 
 func fetchRequestForDoctorAccounts(_ context: NSManagedObjectContext) -> [DoctorAccounts] {
@@ -67,6 +82,32 @@ func fetchRequestForPatientAccounts(_ context: NSManagedObjectContext) -> [Patie
     let entity = PatientAccounts.entity()
     fetchRequest.entity = entity
     let sortDescriptor = NSSortDescriptor(key: "login", ascending: true)
+    fetchRequest.sortDescriptors = [sortDescriptor]
+    do {
+        return try context.fetch(fetchRequest)
+    } catch {
+        fatalError("dont fetch")
+    }
+}
+
+func fetchRequestForPatients(_ context: NSManagedObjectContext) -> [Patients] {
+    let fetchRequest = NSFetchRequest<Patients>()
+    let entity = Patients.entity()
+    fetchRequest.entity = entity
+    let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+    fetchRequest.sortDescriptors = [sortDescriptor]
+    do {
+        return try context.fetch(fetchRequest)
+    } catch {
+        fatalError("dont fetch")
+    }
+}
+
+func fetchRequestForDoctors(_ context: NSManagedObjectContext) -> [Doctors] {
+    let fetchRequest = NSFetchRequest<Doctors>()
+    let entity = Doctors.entity()
+    fetchRequest.entity = entity
+    let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
     fetchRequest.sortDescriptors = [sortDescriptor]
     do {
         return try context.fetch(fetchRequest)

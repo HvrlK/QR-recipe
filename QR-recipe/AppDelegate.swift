@@ -34,17 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if login.contains("@") {
                 let doctorAccounts = fetchRequestForDoctorAccounts(managedObjectContext)
                 for account in doctorAccounts {
-                    //FIXME: doctor
                     if account.login == login && account.password == password {
-                        self.window?.rootViewController = accountForDoctor("Doctor")
+                        self.window?.rootViewController = accountForDoctor(account.doctor)
                     }
                 }
             } else if let login = defaults.string(forKey: "login") {
                 let patientAccounts = fetchRequestForPatientAccounts(managedObjectContext)
                 for account in patientAccounts {
-                    //FIXME: patient
                     if account.login == login, account.password == password {
-                        self.window?.rootViewController = accountForPatient("Hvrlk")
+                        self.window?.rootViewController = accountForPatient(account.patient)
                     }
                 }
             }

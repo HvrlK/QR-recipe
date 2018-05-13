@@ -19,6 +19,6 @@ extension DoctorAccounts {
 
     @NSManaged public var login: String
     @NSManaged public var password: String
-    @NSManaged public var doctorID: Int32
+    @NSManaged public var doctor: Doctors
 
 }

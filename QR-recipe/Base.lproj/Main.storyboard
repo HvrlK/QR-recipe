@@ -162,7 +162,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rnN-fj-WSr">
                             <connections>
-                                <segue destination="cNM-Ep-y0o" kind="show" id="J1J-kW-mbT"/>
+                                <segue destination="cNM-Ep-y0o" kind="show" identifier="" id="J1J-kW-mbT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

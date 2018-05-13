@@ -12,13 +12,18 @@ class AddPatientTableViewController: DoctorTableViewController {
     
     // MARK: - Properties
     
-    var selectedPatient: String?
+    var selectedPatient: Patients?
     
     // MARK: - Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        patients = ["Illenok Marina", "Plahtiy Bogdan"]
+        patients = fetchRequestForPatients(context()).filter {
+            if $0.doctor == nil {
+                return true
+            }
+            return false
+        }
     }
 
     

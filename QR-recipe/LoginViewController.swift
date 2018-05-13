@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     }
     
     func presentIncorrectDataAlert() {
-        usernameTextField.text?.removeAll()
+        passwordTextField.text?.removeAll()
         passwordTextField.becomeFirstResponder()
         let alert = UIAlertController(
             title: NSLocalizedString("Incorrect login or password", comment: "Incorrect data - title"),
@@ -100,32 +100,71 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonTapped() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.managedObjectContext
+//        let doctorAc = DoctorAccounts(context: context)
+//        doctorAc.login = "babenko@gmail.com"
+//        doctorAc.password = "111"
+//        let doctor = Doctors(context: context)
+//        doctor.name = "Vitalii"
+//        doctor.surname = "Babenko"
+//        doctor.doctorID = 1
+//        doctor.birthDate = nil
+//        doctor.position = "Nurse"
+//        doctor.account = doctorAc
+//
+//        let patientAc = PatientAccounts(context: context)
+//        patientAc.login = "hvrlk"
+//        patientAc.password = "111"
+//        let patient = Patients(context: context)
+//        patient.name = "Vitalii"
+//        patient.surname = "Havryliuk"
+//        patient.medicalID = 1
+//        patient.birthDate = nil
+//        patient.doctor = nil
+//        patient.account = patientAc
+//
+//        let patientAc2 = PatientAccounts(context: context)
+//        patientAc2.login = "marina"
+//        patientAc2.password = "111"
+//        let patient2 = Patients(context: context)
+//        patient2.name = "Marina"
+//        patient2.surname = "Illenok"
+//        patient2.medicalID = 2
+//        patient2.birthDate = nil
+//        patient2.doctor = nil
+//        patient2.account = patientAc2
+//        doctor.addToPatients(patient)
+//
+//        do {
+//            try context.save()
+//            print("success")
+//        } catch {
+//            fatalError("dont save")
+//        }
+        
         if usernameTextField.text!.contains("@") {
             let doctorAccounts = fetchRequestForDoctorAccounts(context)
             for account in doctorAccounts {
                 if account.login == usernameTextField.text!, account.password == passwordTextField.text! {
-                    //FIXME: doctorID
-                    if let doctorNavigationController = accountForDoctor("doc") {
+                    if let doctorNavigationController = accountForDoctor(account.doctor) {
                         savePassword()
                         appDelegate.window?.rootViewController = doctorNavigationController
                     }
-                } else {
-                    presentIncorrectDataAlert()
                 }
             }
         } else {
             let patientAccounts = fetchRequestForPatientAccounts(context)
             for account in patientAccounts {
                 if account.login == usernameTextField.text!, account.password == passwordTextField.text! {
-                    //FIXME: patientID
-                    if let patientNavigationController = accountForPatient("Hvrlk") {
+                    if let patientNavigationController = accountForPatient(account.patient) {
                         savePassword()
                         appDelegate.window?.rootViewController = patientNavigationController
                     }
-                } else {
-                    presentIncorrectDataAlert()
                 }
             }
+        }
+//        
+        if appDelegate.window?.rootViewController == self {
+            presentIncorrectDataAlert()
         }
     }
 

@@ -13,7 +13,7 @@ class PatientTableViewController: UITableViewController {
     // MARK: - Properties
     
     var isDoctor = false
-    var patient: String?
+    var patient: Patients?
     
     // MARK: - Outlets
     
@@ -30,7 +30,7 @@ class PatientTableViewController: UITableViewController {
             barButton.title = NSLocalizedString("Log Out", comment: "Exit from account")
         }
         if let patient = patient {
-            nameLabel.text = patient
+            nameLabel.text = patient.name + " " + patient.surname
         }
     }
     

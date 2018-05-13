@@ -1,27 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DoctorAccounts" representedClassName="DoctorAccounts" syncable="YES">
-        <attribute name="doctorID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="login" attributeType="String" syncable="YES"/>
         <attribute name="password" attributeType="String" syncable="YES"/>
+        <relationship name="doctor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Doctors" inverseName="account" inverseEntity="Doctors" syncable="YES"/>
+    </entity>
+    <entity name="Doctors" representedClassName="Doctors" syncable="YES">
+        <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="doctorID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="position" attributeType="String" syncable="YES"/>
+        <attribute name="surname" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DoctorAccounts" inverseName="doctor" inverseEntity="DoctorAccounts" syncable="YES"/>
+        <relationship name="patients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Patients" inverseName="doctor" inverseEntity="Patients" syncable="YES"/>
+    </entity>
+    <entity name="Medicines" representedClassName="Medicines" syncable="YES">
+        <attribute name="mainSubstance" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="medicine" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <entity name="PatientAccounts" representedClassName="PatientAccounts" syncable="YES">
         <attribute name="login" attributeType="String" syncable="YES"/>
         <attribute name="password" attributeType="String" syncable="YES"/>
-        <attribute name="patientID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="patient" maxCount="1" deletionRule="Nullify" destinationEntity="Patients" inverseName="account" inverseEntity="Patients" syncable="YES"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patients" inverseName="account" inverseEntity="Patients" syncable="YES"/>
     </entity>
     <entity name="Patients" representedClassName="Patients" syncable="YES">
         <attribute name="birthDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="doctorID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="medicalID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="patientID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="surname" attributeType="String" syncable="YES"/>
-        <relationship name="account" maxCount="1" deletionRule="Nullify" destinationEntity="PatientAccounts" inverseName="patient" inverseEntity="PatientAccounts" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PatientAccounts" inverseName="patient" inverseEntity="PatientAccounts" syncable="YES"/>
+        <relationship name="doctor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Doctors" inverseName="patients" inverseEntity="Doctors" syncable="YES"/>
+        <relationship name="recipe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="patient" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="Recipe" representedClassName="Recipe" syncable="YES">
+        <attribute name="instruction" attributeType="String" syncable="YES"/>
+        <relationship name="medicine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicines" inverseName="recipe" inverseEntity="Medicines" syncable="YES"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patients" inverseName="recipe" inverseEntity="Patients" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PatientAccounts" positionX="-72" positionY="-7" width="128" height="103"/>
-        <element name="Patients" positionX="142" positionY="9" width="128" height="133"/>
-        <element name="DoctorAccounts" positionX="-72" positionY="-144" width="128" height="88"/>
+        <element name="PatientAccounts" positionX="-65" positionY="54" width="128" height="88"/>
+        <element name="Patients" positionX="133" positionY="9" width="128" height="148"/>
+        <element name="DoctorAccounts" positionX="-65" positionY="-171" width="128" height="88"/>
+        <element name="Doctors" positionX="135" positionY="-216" width="128" height="148"/>
+        <element name="Recipe" positionX="324" positionY="72" width="128" height="88"/>
+        <element name="Medicines" positionX="324" positionY="-90" width="128" height="88"/>
     </elements>
 </model>
