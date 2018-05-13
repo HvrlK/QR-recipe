@@ -31,6 +31,8 @@ class PatientTableViewController: UITableViewController {
         }
         if let patient = patient {
             nameLabel.text = patient.name + " " + patient.surname
+            dateLabel.text = patient.birthDate
+            medicalIDLabel.text = String(patient.medicalID)
         }
     }
     

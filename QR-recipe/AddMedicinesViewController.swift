@@ -12,8 +12,10 @@ class AddMedicinesViewController: UIViewController, UITableViewDelegate {
     
     // MARK: - Properties
     
-    var medicines = ["med", "med 2"]
-    var selectedMedicines: String?
+    var medicines: [Medicines] = {
+        return fetchRequestForMedicines(context())
+    }()
+    var selectedMedicines: Medicines?
     var instruction: String?
     
     // MARK: - Outlets
@@ -92,7 +94,7 @@ extension AddMedicinesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicinesListCell", for: indexPath)
-        cell.textLabel?.text = medicines[indexPath.row]
+        cell.textLabel?.text = medicines[indexPath.row].name
         return cell
     }
     

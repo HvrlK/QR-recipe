@@ -118,7 +118,7 @@ class LoginViewController: UIViewController {
 //        patient.name = "Vitalii"
 //        patient.surname = "Havryliuk"
 //        patient.medicalID = 1
-//        patient.birthDate = nil
+//        patient.birthDate = "23.07.1998"
 //        patient.doctor = nil
 //        patient.account = patientAc
 //
@@ -129,17 +129,19 @@ class LoginViewController: UIViewController {
 //        patient2.name = "Marina"
 //        patient2.surname = "Illenok"
 //        patient2.medicalID = 2
-//        patient2.birthDate = nil
+//        patient2.birthDate = "28.05.1998"
 //        patient2.doctor = nil
 //        patient2.account = patientAc2
 //        doctor.addToPatients(patient)
 //
-//        do {
-//            try context.save()
-//            print("success")
-//        } catch {
-//            fatalError("dont save")
-//        }
+//        let medicine = Medicines(context: context)
+//        medicine.name = "Aflubin"
+//        medicine.mainSubstance = "smth"
+//    
+//        let medicine2 = Medicines(context: context)
+//        medicine2.name = "Aspirine"
+//        medicine2.mainSubstance = "smth"
+//        saveContext(context)
         
         if usernameTextField.text!.contains("@") {
             let doctorAccounts = fetchRequestForDoctorAccounts(context)

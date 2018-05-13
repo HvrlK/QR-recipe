@@ -17,7 +17,7 @@ extension Patients {
         return NSFetchRequest<Patients>(entityName: "Patients")
     }
 
-    @NSManaged public var birthDate: NSDate
+    @NSManaged public var birthDate: String
     @NSManaged public var name: String
     @NSManaged public var medicalID: Int32
     @NSManaged public var surname: String

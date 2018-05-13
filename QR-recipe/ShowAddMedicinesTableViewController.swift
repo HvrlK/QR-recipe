@@ -12,7 +12,7 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    var medicines = ["med 1", "med 2"]
+    var medicines = [Medicines]()
     var meddescription = ["description 1", "description 2"]
     var isAdding = false
 
@@ -44,7 +44,11 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     
     @objc func showQRCode() {
         if let QRCodeViewController = storyboard?.instantiateViewController(withIdentifier: "QRCodeViewController") as? QRcodeViewController {
-            let medicinesForQRCode = medicines.joined(separator: "\n")
+            var medicinesName = [String]()
+            for medicine in medicines {
+                medicinesName.append(medicine.name)
+            }
+            let medicinesForQRCode = medicinesName.joined(separator: "\n")
             let data = medicinesForQRCode.data(using: .utf8, allowLossyConversion: false)
             if let filter = CIFilter(name: "CIQRCodeGenerator") {
                 filter.setValue(data, forKey: "inputMessage")
@@ -104,7 +108,7 @@ class ShowAddMedicinesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicinesCell", for: indexPath)
-        cell.textLabel?.text = medicines[indexPath.row]
+        cell.textLabel?.text = medicines[indexPath.row].name
         return cell
     }
 

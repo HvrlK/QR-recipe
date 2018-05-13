@@ -64,12 +64,14 @@ func saveContext(_ context: NSManagedObjectContext) {
     }
 }
 
+let sortByName = NSSortDescriptor(key: "name", ascending: true)
+let sortByLogin = NSSortDescriptor(key: "login", ascending: true)
+
 func fetchRequestForDoctorAccounts(_ context: NSManagedObjectContext) -> [DoctorAccounts] {
     let fetchRequest = NSFetchRequest<DoctorAccounts>()
     let entity = DoctorAccounts.entity()
     fetchRequest.entity = entity
-    let sortDescriptor = NSSortDescriptor(key: "login", ascending: true)
-    fetchRequest.sortDescriptors = [sortDescriptor]
+    fetchRequest.sortDescriptors = [sortByLogin]
     do {
         return try context.fetch(fetchRequest)
     } catch {
@@ -81,8 +83,7 @@ func fetchRequestForPatientAccounts(_ context: NSManagedObjectContext) -> [Patie
     let fetchRequest = NSFetchRequest<PatientAccounts>()
     let entity = PatientAccounts.entity()
     fetchRequest.entity = entity
-    let sortDescriptor = NSSortDescriptor(key: "login", ascending: true)
-    fetchRequest.sortDescriptors = [sortDescriptor]
+    fetchRequest.sortDescriptors = [sortByLogin]
     do {
         return try context.fetch(fetchRequest)
     } catch {
@@ -94,8 +95,7 @@ func fetchRequestForPatients(_ context: NSManagedObjectContext) -> [Patients] {
     let fetchRequest = NSFetchRequest<Patients>()
     let entity = Patients.entity()
     fetchRequest.entity = entity
-    let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-    fetchRequest.sortDescriptors = [sortDescriptor]
+    fetchRequest.sortDescriptors = [sortByName]
     do {
         return try context.fetch(fetchRequest)
     } catch {
@@ -107,8 +107,19 @@ func fetchRequestForDoctors(_ context: NSManagedObjectContext) -> [Doctors] {
     let fetchRequest = NSFetchRequest<Doctors>()
     let entity = Doctors.entity()
     fetchRequest.entity = entity
-    let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-    fetchRequest.sortDescriptors = [sortDescriptor]
+    fetchRequest.sortDescriptors = [sortByName]
+    do {
+        return try context.fetch(fetchRequest)
+    } catch {
+        fatalError("dont fetch")
+    }
+}
+
+func fetchRequestForMedicines(_ context: NSManagedObjectContext) -> [Medicines] {
+    let fetchRequest = NSFetchRequest<Medicines>()
+    let entity = Medicines.entity()
+    fetchRequest.entity = entity
+    fetchRequest.sortDescriptors = [sortByName]
     do {
         return try context.fetch(fetchRequest)
     } catch {
