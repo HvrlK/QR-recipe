@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -378,7 +378,7 @@
                                 <rect key="frame" x="0.0" y="270.5" width="375" height="396.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MedicinesListCell" textLabel="odQ-9k-X8g" style="IBUITableViewCellStyleDefault" id="do3-Ia-UZW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MedicinesListCell" textLabel="odQ-9k-X8g" style="IBUITableViewCellStyleDefault" id="do3-Ia-UZW">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="do3-Ia-UZW" id="sV3-Om-z4h">
@@ -416,7 +416,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.97254901959999995" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0Ug-pj-zOR" firstAttribute="top" secondItem="Yhe-Pv-9av" secondAttribute="bottom" constant="20" id="1gh-Aa-xwg"/>
                             <constraint firstItem="0Ug-pj-zOR" firstAttribute="leading" secondItem="m0r-hH-q3V" secondAttribute="leading" id="3La-ww-4Qk"/>
@@ -580,16 +580,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BBb-P1-sGv">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="44.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qd-Y9-fKb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-pa-94h">
-                                                    <rect key="frame" x="0.0" y="24" width="343" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="23" width="343" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Medical ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKz-R9-8zc">
                                                             <rect key="frame" x="0.0" y="0.0" width="85" height="20.5"/>
@@ -615,7 +615,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="BBb-P1-sGv" secondAttribute="trailing" constant="16" id="02K-zt-9ap"/>
-                                        <constraint firstItem="BBb-P1-sGv" firstAttribute="centerY" secondItem="aHb-L1-EuJ" secondAttribute="centerY" id="46a-tu-eU1"/>
+                                        <constraint firstAttribute="bottom" secondItem="BBb-P1-sGv" secondAttribute="bottom" id="HPM-jd-Cft"/>
+                                        <constraint firstItem="BBb-P1-sGv" firstAttribute="top" secondItem="aHb-L1-EuJ" secondAttribute="top" id="pwJ-Yz-alR"/>
                                         <constraint firstItem="BBb-P1-sGv" firstAttribute="leading" secondItem="aHb-L1-EuJ" secondAttribute="leading" constant="16" id="zGQ-wx-peq"/>
                                     </constraints>
                                 </tableViewCellContentView>
