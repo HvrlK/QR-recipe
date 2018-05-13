@@ -352,7 +352,6 @@
         <!--Add Medicines View Controller-->
         <scene sceneID="vyC-Jz-SLD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FcX-wZ-mQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AddMedicinesViewController" id="Li7-a8-VJJ" customClass="AddMedicinesViewController" customModule="QR_recipe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lk2-4j-xld">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -443,6 +442,7 @@
                         <segue destination="7JF-rS-AwW" kind="unwind" identifier="AddMedicines" unwindAction="unwindFromAddMedicinesWithUnwideSegue:" id="MmE-XQ-ZRe"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcX-wZ-mQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3952.8000000000002" y="673.31334332833592"/>
         </scene>
@@ -454,6 +454,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yWS-mu-ZmZ">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <state key="normal" title="Sign Recipe"/>
+                            <state key="disabled" title="Empty yet"/>
+                            <connections>
+                                <action selector="signButtonTapped:" destination="Can-M6-z7h" eventType="touchUpInside" id="zX4-ds-8jg"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicinesCell" textLabel="Vqp-t7-quZ" style="IBUITableViewCellStyleDefault" id="APy-7q-dKI">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -479,6 +489,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recipe" id="FgK-7E-iFy"/>
+                    <connections>
+                        <outlet property="signButton" destination="yWS-mu-ZmZ" id="qHs-MQ-UPd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zb0-jm-JuN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7JF-rS-AwW" userLabel="Exit" sceneMemberID="exit"/>

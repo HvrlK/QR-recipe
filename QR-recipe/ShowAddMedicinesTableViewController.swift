@@ -15,6 +15,10 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     var medicines = ["med 1", "med 2"]
     var meddescription = ["description 1", "description 2"]
     var isAdding = false
+
+    // MARK: - Outlets
+    
+    @IBOutlet weak var signButton: UIButton!
     
     // MARK: - Methods
 
@@ -23,10 +27,19 @@ class ShowAddMedicinesTableViewController: UITableViewController {
         var barButtonItem: UIBarButtonItem
         if isAdding {
             barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addMedecines))
+//
+            medicines = []
+//
         } else {
             barButtonItem = UIBarButtonItem(title: "QR-code", style: .plain, target: self, action: #selector(showQRCode))
+            signButton.isHidden = true
         }
         navigationItem.rightBarButtonItem = barButtonItem
+        updateSignButton()
+    }
+    
+    func updateSignButton() {
+        signButton.isEnabled = !medicines.isEmpty ? true : false
     }
     
     @objc func showQRCode() {
@@ -49,6 +62,35 @@ class ShowAddMedicinesTableViewController: UITableViewController {
             present(addMedicinesViewController, animated: true, completion: nil)
         }
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func signButtonTapped(_ sender: UIButton) {
+        // FIXME: sent email
+        
+        let alert = UIAlertController(
+            title: NSLocalizedString("Enter sequrity code", comment: "Sign alert - title"),
+            message: NSLocalizedString("Sequrity code has been sent to your email.", comment: "Sign aler - message"),
+            preferredStyle: .alert
+        )
+        alert.addTextField()
+        let cancelAction = UIAlertAction(
+            title: NSLocalizedString("Cancel", comment: "Sign alert - cancel action"),
+            style: .cancel,
+            handler: nil
+        )
+        let okAction = UIAlertAction(
+            title: NSLocalizedString("OK", comment: "Sign alert - OK"),
+            style: .default,
+            handler: { _ in
+//                if alert.textFields?.first?.text == "aaa" {
+//                    print("success")
+//                }
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 
     // MARK: - Table view data source
 
@@ -62,13 +104,27 @@ class ShowAddMedicinesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicinesCell", for: indexPath)
-            cell.textLabel?.text = medicines[indexPath.row]
+        cell.textLabel?.text = medicines[indexPath.row]
         return cell
     }
 
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return false
+        if isAdding {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //FIXME: add database logic
+            medicines.remove(at: indexPath.row)
+            meddescription.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            updateSignButton()
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,6 +150,7 @@ class ShowAddMedicinesTableViewController: UITableViewController {
         medicines.append(medicine)
         meddescription.append(instruction)
         tableView.reloadData()
+        updateSignButton()
     }
     
 }
