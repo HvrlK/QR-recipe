@@ -7,27 +7,49 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Model")
+        container.loadPersistentStores(completionHandler: {
+            storeDescription, error in
+            if let error = error {
+                fatalError("Could load data store: \(error)")
+            }
+        })
+        return container
+    }()
+    
+    lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let defaults = UserDefaults.standard
-        let doctorAccounts = ["doctor"]
-        let patientAccounts = ["patient"]
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let login = defaults.string(forKey: "login"), doctorAccounts.contains(login) {
-            self.window?.rootViewController = accountForDoctor("Doctor")
-        } else if let login = defaults.string(forKey: "login"), patientAccounts.contains(login) {
-            self.window?.rootViewController = accountForPatient("Hvrlk")
-        } else {
-            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        if let login = defaults.string(forKey: "login"), let password = defaults.string(forKey: "password") {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            if login.contains("@") {
+                let doctorAccounts = fetchRequestForDoctorAccounts(managedObjectContext)
+                for account in doctorAccounts {
+                    //FIXME: doctor
+                    if account.login == login && account.password == password {
+                        self.window?.rootViewController = accountForDoctor("Doctor")
+                    }
+                }
+            } else if let login = defaults.string(forKey: "login") {
+                let patientAccounts = fetchRequestForPatientAccounts(managedObjectContext)
+                for account in patientAccounts {
+                    //FIXME: patient
+                    if account.login == login, account.password == password {
+                        self.window?.rootViewController = accountForPatient("Hvrlk")
+                    }
+                }
+            }
+            self.window?.makeKeyAndVisible()
         }
-        self.window?.makeKeyAndVisible()
         return true
     }
 

@@ -7,13 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
-    
-    // MARK: - Properties
-    //FIXME: add data model
-    var doctorAccounts = ["doctor"]
-    var patientAccounts = ["patient"]
     
     // MARK: - Outlets
 
@@ -59,8 +55,7 @@ class LoginViewController: UIViewController {
     
     func presentIncorrectDataAlert() {
         usernameTextField.text?.removeAll()
-        passwordTextField.text?.removeAll()
-        usernameTextField.becomeFirstResponder()
+        passwordTextField.becomeFirstResponder()
         let alert = UIAlertController(
             title: NSLocalizedString("Incorrect login or password", comment: "Incorrect data - title"),
             message: NSLocalizedString("Please, try again.", comment: "Incorrect data - message"),
@@ -101,20 +96,36 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    //FIXME: check password and data
+
     @IBAction func loginButtonTapped() {
-        if doctorAccounts.contains(usernameTextField.text!) {
-            if let doctorNavigationController = accountForDoctor("doc") {
-                savePassword()
-                present(doctorNavigationController, animated: true, completion: nil)
-            }
-        } else if patientAccounts.contains(usernameTextField.text!) {
-            if let patientNavigationController = accountForPatient("Hvrlk") {
-                savePassword()
-                present(patientNavigationController, animated: true, completion: nil)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.managedObjectContext
+        if usernameTextField.text!.contains("@") {
+            let doctorAccounts = fetchRequestForDoctorAccounts(context)
+            for account in doctorAccounts {
+                if account.login == usernameTextField.text!, account.password == passwordTextField.text! {
+                    //FIXME: doctorID
+                    if let doctorNavigationController = accountForDoctor("doc") {
+                        savePassword()
+                        appDelegate.window?.rootViewController = doctorNavigationController
+                    }
+                } else {
+                    presentIncorrectDataAlert()
+                }
             }
         } else {
-            presentIncorrectDataAlert()
+            let patientAccounts = fetchRequestForPatientAccounts(context)
+            for account in patientAccounts {
+                if account.login == usernameTextField.text!, account.password == passwordTextField.text! {
+                    //FIXME: patientID
+                    if let patientNavigationController = accountForPatient("Hvrlk") {
+                        savePassword()
+                        appDelegate.window?.rootViewController = patientNavigationController
+                    }
+                } else {
+                    presentIncorrectDataAlert()
+                }
+            }
         }
     }
 

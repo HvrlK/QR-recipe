@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DoctorAccounts" representedClassName="DoctorAccounts" syncable="YES">
+        <attribute name="doctorID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="login" attributeType="String" syncable="YES"/>
+        <attribute name="password" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="PatientAccounts" representedClassName="PatientAccounts" syncable="YES">
+        <attribute name="login" attributeType="String" syncable="YES"/>
+        <attribute name="password" attributeType="String" syncable="YES"/>
+        <attribute name="patientID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="patient" maxCount="1" deletionRule="Nullify" destinationEntity="Patients" inverseName="account" inverseEntity="Patients" syncable="YES"/>
+    </entity>
+    <entity name="Patients" representedClassName="Patients" syncable="YES">
+        <attribute name="birthDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="doctorID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="patientID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="surname" attributeType="String" syncable="YES"/>
+        <relationship name="account" maxCount="1" deletionRule="Nullify" destinationEntity="PatientAccounts" inverseName="patient" inverseEntity="PatientAccounts" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PatientAccounts" positionX="-72" positionY="-7" width="128" height="103"/>
+        <element name="Patients" positionX="142" positionY="9" width="128" height="133"/>
+        <element name="DoctorAccounts" positionX="-72" positionY="-144" width="128" height="88"/>
+    </elements>
+</model>

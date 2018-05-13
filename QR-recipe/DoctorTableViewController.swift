@@ -17,9 +17,6 @@ class DoctorTableViewController: UITableViewController, UISearchControllerDelega
     var isSearching = false
     var doctor: String?
     
-    // MARK: - Outlets
-    
-
     // MARK: - Methods
     
     override func viewDidLoad() {

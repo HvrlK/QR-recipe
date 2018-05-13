@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
@@ -47,3 +48,30 @@ func accountForPatient(_ patient: String) -> UINavigationController? {
     }
     return nil
 }
+
+func fetchRequestForDoctorAccounts(_ context: NSManagedObjectContext) -> [DoctorAccounts] {
+    let fetchRequest = NSFetchRequest<DoctorAccounts>()
+    let entity = DoctorAccounts.entity()
+    fetchRequest.entity = entity
+    let sortDescriptor = NSSortDescriptor(key: "login", ascending: true)
+    fetchRequest.sortDescriptors = [sortDescriptor]
+    do {
+        return try context.fetch(fetchRequest)
+    } catch {
+        fatalError("dont fetch")
+    }
+}
+
+func fetchRequestForPatientAccounts(_ context: NSManagedObjectContext) -> [PatientAccounts] {
+    let fetchRequest = NSFetchRequest<PatientAccounts>()
+    let entity = PatientAccounts.entity()
+    fetchRequest.entity = entity
+    let sortDescriptor = NSSortDescriptor(key: "login", ascending: true)
+    fetchRequest.sortDescriptors = [sortDescriptor]
+    do {
+        return try context.fetch(fetchRequest)
+    } catch {
+        fatalError("dont fetch")
+    }
+}
+
