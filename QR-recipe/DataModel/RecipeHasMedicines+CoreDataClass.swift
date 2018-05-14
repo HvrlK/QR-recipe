@@ -1,5 +1,5 @@
 //
-//  Recipe+CoreDataClass.swift
+//  RecipeHasMedicines+CoreDataClass.swift
 //  QR-recipe
 //
 //  Created by Vitalii Havryliuk on 5/14/18.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Recipe)
-public class Recipe: NSManagedObject {
+@objc(RecipeHasMedicines)
+public class RecipeHasMedicines: NSManagedObject {
 
 }

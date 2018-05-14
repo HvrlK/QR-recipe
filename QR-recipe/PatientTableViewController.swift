@@ -62,6 +62,12 @@ class PatientTableViewController: UITableViewController {
         if segue.identifier == "AddNewRecipe" {
             if let showAddMedicinesTableViewController = segue.destination as? ShowAddMedicinesTableViewController {
                 showAddMedicinesTableViewController.isAdding = true
+                showAddMedicinesTableViewController.patient = patient
+            }
+        }
+        if segue.identifier == "ShowRecipe" {
+            if let showAddMedicinesTableViewController = segue.destination as? ShowAddMedicinesTableViewController {
+                showAddMedicinesTableViewController.patient = patient
             }
         }
     }

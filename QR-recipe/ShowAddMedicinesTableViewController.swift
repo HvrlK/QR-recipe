@@ -13,8 +13,17 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     // MARK: - Properties
     
     var medicines = [Medicines]()
-    var meddescription = ["description 1", "description 2"]
+    var instructions = [String]()
     var isAdding = false
+    var patient: Patients?
+    lazy var recipeHasMedicines: [RecipeHasMedicines] = {
+        return fetchRequestForRecipeHasMedicines(context()).filter { recipeHas -> Bool in
+            if recipeHas.recipe == patient?.recipe {
+                return true
+            }
+            return false
+        }
+    }()
 
     // MARK: - Outlets
     
@@ -27,19 +36,27 @@ class ShowAddMedicinesTableViewController: UITableViewController {
         var barButtonItem: UIBarButtonItem
         if isAdding {
             barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addMedecines))
-//
-            medicines = []
-//
         } else {
             barButtonItem = UIBarButtonItem(title: "QR-code", style: .plain, target: self, action: #selector(showQRCode))
-            signButton.isHidden = true
+            recipeHasMedicines.forEach {
+                medicines.append($0.medicine)
+                instructions.append($0.instruction)
+            }
+            barButtonItem.isEnabled = !medicines.isEmpty
         }
         navigationItem.rightBarButtonItem = barButtonItem
         updateSignButton()
     }
     
     func updateSignButton() {
-        signButton.isEnabled = !medicines.isEmpty ? true : false
+        if medicines.isEmpty {
+            signButton.isEnabled = false
+        } else {
+            signButton.isEnabled = true
+            if !isAdding {
+                signButton.isHidden = true
+            }
+        }
     }
     
     @objc func showQRCode() {
@@ -87,13 +104,35 @@ class ShowAddMedicinesTableViewController: UITableViewController {
             title: NSLocalizedString("OK", comment: "Sign alert - OK"),
             style: .default,
             handler: { _ in
-//                if alert.textFields?.first?.text == "aaa" {
-//                    print("success")
-//                }
+                //FIXME: check code
+                self.signRecipe()
+                _ = self.navigationController?.popViewController(animated: true)
         })
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func signRecipe() {
+        if let patient = patient {
+            for recipeHasMedicine in recipeHasMedicines {
+                context().delete(recipeHasMedicine)
+            }
+            if patient.recipe != nil {
+                context().delete(patient.recipe!)
+            }
+            let recipe = Recipe(context: context())
+            recipe.recipeID = patient.medicalID
+            recipe.doctorID = (patient.doctor?.doctorID)!
+            recipe.patient = patient
+            for index in 0..<medicines.count {
+                let recipeHasMedicine = RecipeHasMedicines(context: context())
+                recipeHasMedicine.instruction = instructions[index]
+                recipeHasMedicine.medicine = medicines[index]
+                recipeHasMedicine.recipe = recipe
+            }
+            saveContext(context())
+        }
     }
 
     // MARK: - Table view data source
@@ -123,9 +162,8 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //FIXME: add database logic
             medicines.remove(at: indexPath.row)
-            meddescription.remove(at: indexPath.row)
+            instructions.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             updateSignButton()
         }
@@ -134,7 +172,7 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let alert = UIAlertController(
-            title: NSLocalizedString("Instruction for \(medicines[indexPath.row]):\n\(meddescription[indexPath.row])",comment: "Instruction - title"),
+            title: NSLocalizedString("Instruction for \(medicines[indexPath.row].name):\n\(instructions[indexPath.row])",comment: "Instruction - title"),
             message: nil,
             preferredStyle: .alert
         )
@@ -152,7 +190,7 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     @IBAction func unwindFromAddMedicines(unwideSegue: UIStoryboardSegue) {
         guard let addMedicinesViewController = unwideSegue.source as? AddMedicinesViewController, let medicine = addMedicinesViewController.selectedMedicines, let instruction = addMedicinesViewController.instruction else { return }
         medicines.append(medicine)
-        meddescription.append(instruction)
+        instructions.append(instruction)
         tableView.reloadData()
         updateSignButton()
     }

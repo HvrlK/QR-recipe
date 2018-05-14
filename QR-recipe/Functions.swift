@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 func showLogOutAlert(_ viewController: UIViewController) {
@@ -21,7 +23,7 @@ func showLogOutAlert(_ viewController: UIViewController) {
             defaults.set(nil, forKey: "login")
             defaults.set(nil, forKey: "password")
             let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            viewController.present(loginViewController, animated: true, completion: nil)
+            appDelegate.window?.rootViewController = loginViewController
     })
     let cancelAction = UIAlertAction(
         title: NSLocalizedString("Cancel", comment: "LogOut - cancel"),
@@ -50,7 +52,6 @@ func accountForPatient(_ patient: Patients) -> UINavigationController? {
 }
 
 func context() -> NSManagedObjectContext {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = appDelegate.managedObjectContext
     return context
 }
@@ -120,6 +121,17 @@ func fetchRequestForMedicines(_ context: NSManagedObjectContext) -> [Medicines] 
     let entity = Medicines.entity()
     fetchRequest.entity = entity
     fetchRequest.sortDescriptors = [sortByName]
+    do {
+        return try context.fetch(fetchRequest)
+    } catch {
+        fatalError("dont fetch")
+    }
+}
+
+func fetchRequestForRecipeHasMedicines(_ context: NSManagedObjectContext) -> [RecipeHasMedicines] {
+    let fetchRequest = NSFetchRequest<RecipeHasMedicines>()
+    let entity = RecipeHasMedicines.entity()
+    fetchRequest.entity = entity
     do {
         return try context.fetch(fetchRequest)
     } catch {

@@ -98,53 +98,8 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonTapped() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.managedObjectContext
-//        let doctorAc = DoctorAccounts(context: context)
-//        doctorAc.login = "babenko@gmail.com"
-//        doctorAc.password = "111"
-//        let doctor = Doctors(context: context)
-//        doctor.name = "Vitalii"
-//        doctor.surname = "Babenko"
-//        doctor.doctorID = 1
-//        doctor.birthDate = nil
-//        doctor.position = "Nurse"
-//        doctor.account = doctorAc
-//
-//        let patientAc = PatientAccounts(context: context)
-//        patientAc.login = "hvrlk"
-//        patientAc.password = "111"
-//        let patient = Patients(context: context)
-//        patient.name = "Vitalii"
-//        patient.surname = "Havryliuk"
-//        patient.medicalID = 1
-//        patient.birthDate = "23.07.1998"
-//        patient.doctor = nil
-//        patient.account = patientAc
-//
-//        let patientAc2 = PatientAccounts(context: context)
-//        patientAc2.login = "marina"
-//        patientAc2.password = "111"
-//        let patient2 = Patients(context: context)
-//        patient2.name = "Marina"
-//        patient2.surname = "Illenok"
-//        patient2.medicalID = 2
-//        patient2.birthDate = "28.05.1998"
-//        patient2.doctor = nil
-//        patient2.account = patientAc2
-//        doctor.addToPatients(patient)
-//
-//        let medicine = Medicines(context: context)
-//        medicine.name = "Aflubin"
-//        medicine.mainSubstance = "smth"
-//    
-//        let medicine2 = Medicines(context: context)
-//        medicine2.name = "Aspirine"
-//        medicine2.mainSubstance = "smth"
-//        saveContext(context)
-        
         if usernameTextField.text!.contains("@") {
-            let doctorAccounts = fetchRequestForDoctorAccounts(context)
+            let doctorAccounts = fetchRequestForDoctorAccounts(context())
             for account in doctorAccounts {
                 if account.login == usernameTextField.text!, account.password == passwordTextField.text! {
                     if let doctorNavigationController = accountForDoctor(account.doctor) {
@@ -154,7 +109,7 @@ class LoginViewController: UIViewController {
                 }
             }
         } else {
-            let patientAccounts = fetchRequestForPatientAccounts(context)
+            let patientAccounts = fetchRequestForPatientAccounts(context())
             for account in patientAccounts {
                 if account.login == usernameTextField.text!, account.password == passwordTextField.text! {
                     if let patientNavigationController = accountForPatient(account.patient) {
@@ -164,7 +119,6 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-//        
         if appDelegate.window?.rootViewController == self {
             presentIncorrectDataAlert()
         }

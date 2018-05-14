@@ -17,7 +17,7 @@
     <entity name="Medicines" representedClassName="Medicines" syncable="YES">
         <attribute name="mainSubstance" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="medicine" inverseEntity="Recipe" syncable="YES"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeHasMedicines" inverseName="medicine" inverseEntity="RecipeHasMedicines" syncable="YES"/>
     </entity>
     <entity name="PatientAccounts" representedClassName="PatientAccounts" syncable="YES">
         <attribute name="login" attributeType="String" syncable="YES"/>
@@ -31,19 +31,26 @@
         <attribute name="surname" attributeType="String" syncable="YES"/>
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PatientAccounts" inverseName="patient" inverseEntity="PatientAccounts" syncable="YES"/>
         <relationship name="doctor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Doctors" inverseName="patients" inverseEntity="Doctors" syncable="YES"/>
-        <relationship name="recipe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="patient" inverseEntity="Recipe" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="patient" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES">
+        <attribute name="doctorID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipeID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="hasMedicines" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeHasMedicines" inverseName="recipe" inverseEntity="RecipeHasMedicines" syncable="YES"/>
+        <relationship name="patient" maxCount="1" deletionRule="Nullify" destinationEntity="Patients" inverseName="recipe" inverseEntity="Patients" syncable="YES"/>
+    </entity>
+    <entity name="RecipeHasMedicines" representedClassName="RecipeHasMedicines" syncable="YES">
         <attribute name="instruction" attributeType="String" syncable="YES"/>
-        <relationship name="medicine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicines" inverseName="recipe" inverseEntity="Medicines" syncable="YES"/>
-        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patients" inverseName="recipe" inverseEntity="Patients" syncable="YES"/>
+        <relationship name="medicine" maxCount="1" deletionRule="Nullify" destinationEntity="Medicines" inverseName="recipes" inverseEntity="Medicines" syncable="YES"/>
+        <relationship name="recipe" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="hasMedicines" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <elements>
+        <element name="DoctorAccounts" positionX="-65" positionY="-171" width="128" height="88"/>
+        <element name="Doctors" positionX="133" positionY="-220" width="128" height="148"/>
+        <element name="Medicines" positionX="333" positionY="-225" width="128" height="88"/>
         <element name="PatientAccounts" positionX="-65" positionY="54" width="128" height="88"/>
         <element name="Patients" positionX="133" positionY="9" width="128" height="148"/>
-        <element name="DoctorAccounts" positionX="-65" positionY="-171" width="128" height="88"/>
-        <element name="Doctors" positionX="135" positionY="-216" width="128" height="148"/>
-        <element name="Recipe" positionX="324" positionY="72" width="128" height="88"/>
-        <element name="Medicines" positionX="324" positionY="-90" width="128" height="88"/>
+        <element name="Recipe" positionX="324" positionY="53" width="128" height="103"/>
+        <element name="RecipeHasMedicines" positionX="331" positionY="-72" width="128" height="88"/>
     </elements>
 </model>
