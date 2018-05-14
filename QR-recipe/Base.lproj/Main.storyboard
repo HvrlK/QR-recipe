@@ -154,6 +154,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Patients" largeTitleDisplayMode="always" id="CYG-Ob-VL4">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="QIc-j0-dFB"/>
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="sCs-M2-Q3A">
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

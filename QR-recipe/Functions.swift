@@ -56,12 +56,11 @@ func context() -> NSManagedObjectContext {
     return context
 }
 
-//FIXME: alert for error
 func saveContext(_ context: NSManagedObjectContext) {
     do {
         try context.save()
     } catch {
-        fatalError("dont save")
+        fatalError("Could save in data store: \(error)")
     }
 }
 

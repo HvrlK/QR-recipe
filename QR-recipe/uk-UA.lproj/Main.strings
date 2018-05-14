@@ -1,0 +1,102 @@
+
+/* Class = "UILabel"; text = "ID goes here"; ObjectID = "5mk-pY-rSI"; */
+"5mk-pY-rSI.text" = "ID goes here";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "7qd-Y9-fKb"; */
+"7qd-Y9-fKb.text" = "Name";
+
+/* Class = "UINavigationItem"; title = "My Patients"; ObjectID = "CYG-Ob-VL4"; */
+"CYG-Ob-VL4.title" = "My Patients";
+
+/* Class = "UINavigationItem"; title = "Recipe"; ObjectID = "FgK-7E-iFy"; */
+"FgK-7E-iFy.title" = "Рецепт";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Hh9-Hw-JxE"; */
+"Hh9-Hw-JxE.text" = "Name";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "JZ9-4E-ulF"; */
+"JZ9-4E-ulF.title" = "Закрити";
+
+/* Class = "UILabel"; text = "date goes here"; ObjectID = "OCm-Ao-L5Z"; */
+"OCm-Ao-L5Z.text" = "date goes here";
+
+/* Class = "UINavigationItem"; title = "Medicines"; ObjectID = "PxR-Ju-dto"; */
+"PxR-Ju-dto.title" = "Ліки";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "QIc-j0-dFB"; */
+"QIc-j0-dFB.title" = "Назад";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Rtc-K0-RaH"; */
+"Rtc-K0-RaH.placeholder" = "Ім'я користувача";
+
+/* Class = "UITableViewSection"; headerTitle = "Recipe"; ObjectID = "SyC-O3-BCL"; */
+"SyC-O3-BCL.headerTitle" = "Рецепт";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Vqp-t7-quZ"; */
+"Vqp-t7-quZ.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Add Patient"; ObjectID = "YvV-Bt-mjX"; */
+"YvV-Bt-mjX.title" = "Додати Пацієнта";
+
+/* Class = "UIButton"; normalTitle = "Forgot password?"; ObjectID = "abj-tJ-UNT"; */
+"abj-tJ-UNT.normalTitle" = "Забули Пароль?";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "b0l-E9-VjI"; */
+"b0l-E9-VjI.normalTitle" = "Ввійти";
+
+/* Class = "UITableViewController"; title = "Add Patient"; ObjectID = "cNM-Ep-y0o"; */
+"cNM-Ep-y0o.title" = "Додати пацієнта";
+
+/* Class = "UILabel"; text = "Medical ID:"; ObjectID = "ckk-A6-Jte"; */
+"ckk-A6-Jte.text" = "Номер карти:";
+
+/* Class = "UILabel"; text = "Name goes here"; ObjectID = "dE2-hs-i80"; */
+"dE2-hs-i80.text" = "Name goes here";
+
+/* Class = "UILabel"; text = "(ID goes here)"; ObjectID = "dLa-c7-NCf"; */
+"dLa-c7-NCf.text" = "(ID goes here)";
+
+/* Class = "UILabel"; text = "Medical ID:"; ObjectID = "eKz-R9-8zc"; */
+"eKz-R9-8zc.text" = "Номер карти:";
+
+/* Class = "UILabel"; text = "INSTRUCTION"; ObjectID = "fWL-ek-Qba"; */
+"fWL-ek-Qba.text" = "ІНСТРУКЦІЯ";
+
+/* Class = "UINavigationItem"; title = "QR-code"; ObjectID = "fZ2-mT-Qca"; */
+"fZ2-mT-Qca.title" = "QR-код";
+
+/* Class = "UILabel"; text = "Medical ID:"; ObjectID = "gOa-Y2-TMn"; */
+"gOa-Y2-TMn.text" = "Номер карти:";
+
+/* Class = "UIButton"; normalTitle = "Add New Recipe"; ObjectID = "gqu-Kz-DMH"; */
+"gqu-Kz-DMH.normalTitle" = "Додати Новий Рецепт";
+
+/* Class = "UILabel"; text = "Date of birth:"; ObjectID = "ig5-23-6Zw"; */
+"ig5-23-6Zw.text" = "Дата народження:";
+
+/* Class = "UITableViewSection"; headerTitle = "Information"; ObjectID = "jEc-bB-qtc"; */
+"jEc-bB-qtc.headerTitle" = "Інформація";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "lbD-1Z-kpc"; */
+"lbD-1Z-kpc.placeholder" = "Пароль";
+
+/* Class = "UILabel"; text = "QR-recipe"; ObjectID = "mhW-9D-lgy"; */
+"mhW-9D-lgy.text" = "QR-рецепт";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "odQ-9k-X8g"; */
+"odQ-9k-X8g.text" = "Title";
+
+/* Class = "UILabel"; text = "(ID goes here)"; ObjectID = "p4v-jr-Rgj"; */
+"p4v-jr-Rgj.text" = "(ID goes here)";
+
+/* Class = "UIBarButtonItem"; title = "Log Out"; ObjectID = "sCs-M2-Q3A"; */
+"sCs-M2-Q3A.title" = "Вихід";
+
+/* Class = "UIButton"; normalTitle = "Show Recipe"; ObjectID = "v0e-Ta-9RI"; */
+"v0e-Ta-9RI.normalTitle" = "Показати Рецепт";
+
+/* Class = "UIButton"; disabledTitle = "Empty yet"; ObjectID = "yWS-mu-ZmZ"; */
+"yWS-mu-ZmZ.disabledTitle" = "Порожньо";
+
+/* Class = "UIButton"; normalTitle = "Sign Recipe"; ObjectID = "yWS-mu-ZmZ"; */
+"yWS-mu-ZmZ.normalTitle" = "Підписати Рецепт";

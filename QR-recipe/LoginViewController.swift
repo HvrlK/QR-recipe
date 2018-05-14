@@ -12,11 +12,11 @@ import CoreData
 class LoginViewController: UIViewController {
     
     // MARK: - Outlets
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-
+    
     // MARK: - Methods
     
     override func viewDidLoad() {
@@ -96,7 +96,7 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-
+    
     @IBAction func loginButtonTapped() {
         if usernameTextField.text!.contains("@") {
             let doctorAccounts = fetchRequestForDoctorAccounts(context())
@@ -123,7 +123,7 @@ class LoginViewController: UIViewController {
             presentIncorrectDataAlert()
         }
     }
-
+    
 }
 
 // MARK: - Extensions

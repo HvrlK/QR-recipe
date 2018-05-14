@@ -172,7 +172,7 @@ class ShowAddMedicinesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let alert = UIAlertController(
-            title: NSLocalizedString("Instruction for \(medicines[indexPath.row].name):\n\(instructions[indexPath.row])",comment: "Instruction - title"),
+            title: NSLocalizedString("Instruction for ",comment: "Instruction - title") + "\(medicines[indexPath.row].name):\n\(instructions[indexPath.row])",
             message: nil,
             preferredStyle: .alert
         )
